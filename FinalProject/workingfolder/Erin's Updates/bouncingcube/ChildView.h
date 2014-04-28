@@ -25,8 +25,9 @@ public:
 	//CCube *m_cube20, *m_cube21, *m_cube24, *m_cube22, *m_cube23;
 	CCube *m_user;
 	CCube *cubes[31];
+	double *checkpoints[5];
 	CCube  *m_wall1, *m_wall2, *m_wall3, *m_wall4, *m_wall5, *m_wall6;
-	CCube *m_wall,*m_floor;
+	CCube *m_wall,*m_floor, *m_cp, *m_cp1, *m_cp2;
 	bool m_bTimer;
 	int m_nTimer,m_corner;
 	float m_fT;
@@ -48,6 +49,7 @@ public:
 	virtual void CleanGL();
 	void createMaze();
 	void CubeTranslate(double a, double b, double c);
+	vec3 GenerateNewLocation();
 	// Generated message map functions
 protected:
 	DECLARE_MESSAGE_MAP()
@@ -62,6 +64,8 @@ private:
 	CGrTexture m_wood;
 	CGrTexture m_sand;
 	CGrTexture m_lego;
+	CGrTexture m_forest;
+	CGrTexture m_checkpoint;
 	bool m_dragSetting;
 	double x;
 	double y;

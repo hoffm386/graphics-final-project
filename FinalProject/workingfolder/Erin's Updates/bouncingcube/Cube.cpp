@@ -29,9 +29,9 @@ CCube::CCube(double length, double width, double height, bool openWall)
 	quad( 4, 5, 6, 7 ,  vertex_positions, Index);
 	quad( 5, 4, 0, 1 ,  vertex_positions, Index);
 	//Initialize the motion
+	m_dir=vec4(1.0,0.0,0.0,1.0);
 	v = vec3(15.0, 0., 0.);
 	w = vec3(0., 1., 0.);
-	m_dir=vec4(1.0,0.0,0.0,1.0);
 }
 
 void CCube::quad(int a, int b, int c, int d, point4 * vertex_positions, int& Index)
@@ -224,7 +224,7 @@ void CCube::CubeTranslate(double xcor, double ycor, double zcor)
 void CCube::CubeMove(int dir)
 {
 	double xcor,ycor,zcor;
-	
+
 	xcor=c[0]+m_dir[0]*dir*.5;
 	ycor=c[1]+m_dir[1]*dir*.5;
 	zcor=c[2]+m_dir[2]*dir*.5;
@@ -241,9 +241,6 @@ void CCube::CubeRotate(int dir)
 	m_rotation =mat4_cast(q);
 	m_dir=m_rotation*vec4(1,0,0,1);
 }
-/*
-
-
 
 /*
 CCube::AddImpulse
@@ -257,14 +254,9 @@ void CCube::AddImpulse(vec3 n, int corner)
 {
 
 	vec4 contact = m_rotation*vertex_positions[corner];
-	//vec3 u_rel = v + glm::cross(w, vec3(contact));
-	//vec3 rxn = glm::cross(vec3(contact), n);
-			//For a cube, the impulse j=(1+e)* dot(u_rel,n) / (1+ 6 |r cross n|^2)
-			//double j = -1.9f * glm::dot(u_rel,n);
-			//double j = -1.9f * glm::dot(u_rel,n) / (1.+6.*glm::dot(rxn,rxn));
-			double j=1.5;
-				v = v + j*n;
-				w = w + 6.*j*glm::cross(vec3(contact), n);
+	double j=1.5;
+	v = v + j*n;
+	w = w + 6.*j*glm::cross(vec3(contact), n);
 			
 }
 
@@ -309,6 +301,24 @@ bool CCube::checkCollide(vec4 bnds, int cnum)
 		return false;
 	}
 
+}
+
+bool CCube::checkPoint()
+{
+	if( (c[0]<(14.25)) && (c[0]>(12.75)) && (c[2]<(3.75)) && (c[2]>(2.25)) )
+	{
+		return true;
+	}
+	else if( (c[0]<(2.25)) && (c[0]>(.75)) && (c[2]<(-12.75)) && (c[2]>(-14.25)) )
+	{
+		return true;
+	}
+	else if( (c[0]<(2.25)) && (c[0]>(.75)) && (c[2]<(14.25)) && (c[2]>(12.75)) )
+	{
+		return true;
+	}
+	else 
+		return false;
 }
 
 

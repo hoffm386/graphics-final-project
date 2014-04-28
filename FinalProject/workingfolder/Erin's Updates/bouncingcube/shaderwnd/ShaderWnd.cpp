@@ -16,8 +16,8 @@ CShaderWnd::CShaderWnd()
 
 	m_bManageTransformation = true;
 	//m_vEye = vec3(40.f, 40.f, 40.f);
-	m_vEye = vec3(12.5f, 1.0f, -5.5f);
-	m_vLookat = vec3(0.f, 0.f, 0.f);
+	m_vEye = vec3(0.01f, 90.0f, 0.01f);
+	m_vLookat = vec3(0.f, 0.f, -1.f);
 	m_vUp = vec3(0.f, 1.f, 0.f);
 	m_fNear = 0.1f;
 	m_fFar = 1000.f;
