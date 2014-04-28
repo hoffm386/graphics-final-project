@@ -245,8 +245,9 @@ void CChildView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 		}
 		break;
 	case VK_RIGHT:
-		m_user->CubeTranslate(x,1,z-.5);
-		CShaderWnd::UpdatevEye(x+.5,1,z-.5);
+		m_user->CubeRotate(1);
+		//m_user->CubeTranslate(x,1,z-.5);
+		//CShaderWnd::UpdatevEye(x+.5,1,z-.5);
 		Invalidate();
 		for(int i=0;i<31;i++){
 			if(goodMove){
@@ -254,18 +255,20 @@ void CChildView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 			}
 		}
 		if(goodMove){
-			z-=.5;
+			//z-=.5;
 		}
 		else{
-			m_user->CubeTranslate(x,1,z+.5);
-			CShaderWnd::UpdatevEye(x+.5,1,z+.5);
+			m_user->CubeRotate(-1);
+			//m_user->CubeTranslate(x,1,z+.5);
+			//CShaderWnd::UpdatevEye(x+.5,1,z+.5);
 			Invalidate();
 		}
 		
 		break;
 	case VK_LEFT:
-		m_user->CubeTranslate(x,1,z+.5);
-		CShaderWnd::UpdatevEye(x+.5,1,z+.5);
+		m_user->CubeRotate(-1);
+		//m_user->CubeTranslate(x,1,z+.5);
+		//CShaderWnd::UpdatevEye(x+.5,1,z+.5);
 		Invalidate();
 		for(int i=0;i<31;i++){
 			if(goodMove){
@@ -273,18 +276,20 @@ void CChildView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 			}
 		}
 		if(goodMove){
-			z+=.5;
+			//z+=.5;
 		}
 		else{
-			m_user->CubeTranslate(x,1,z-.5);
-			CShaderWnd::UpdatevEye(x+.5,1,z-.5);
+			m_user->CubeRotate(1);
+			//m_user->CubeTranslate(x,1,z-.5);
+			//CShaderWnd::UpdatevEye(x+.5,1,z-.5);
 			Invalidate();
 		}
 		
 		break;
 	case VK_UP:
-		m_user->CubeTranslate(x-.5,1,z);
-		CShaderWnd::UpdatevEye(x,1,z);
+		m_user->CubeMove(1);
+		//m_user->CubeTranslate(x-.5,1,z);
+		//CShaderWnd::UpdatevEye(x,1,z);
 		Invalidate();
 		for(int i=0;i<31;i++){
 			if(goodMove){
@@ -292,18 +297,20 @@ void CChildView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 			}
 		}
 		if(goodMove){
-			x-=.5;
+			//x-=.5;
 		}
 		else{
-			m_user->CubeTranslate(x+.5,1,z);
-			CShaderWnd::UpdatevEye(x+1,1,z);
+			m_user->CubeMove(-1);
+			//m_user->CubeTranslate(x+.5,1,z);
+			//CShaderWnd::UpdatevEye(x+1,1,z);
 			Invalidate();
 		}
 		
 		break;
 	case VK_DOWN:
-		m_user->CubeTranslate(x+.5,1,z);
-		CShaderWnd::UpdatevEye(x+1,1,z);
+		m_user->CubeMove(-1);
+		//m_user->CubeTranslate(x+.5,1,z);
+		//CShaderWnd::UpdatevEye(x+1,1,z);
 		Invalidate();
 		for(int i=0;i<31;i++){
 			if(goodMove){
@@ -311,11 +318,12 @@ void CChildView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 			}
 		}
 		if(goodMove){
-		x+=.5;
+		//x+=.5;
 		}
 		else{
-			m_user->CubeTranslate(x-.5,1,z);
-			CShaderWnd::UpdatevEye(x,1,z);
+			m_user->CubeMove(1);
+			//m_user->CubeTranslate(x-.5,1,z);
+			//CShaderWnd::UpdatevEye(x,1,z);
 			Invalidate();
 		}
 		

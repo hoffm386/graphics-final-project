@@ -30,7 +30,8 @@ CCube::CCube(double length, double width, double height, bool openWall)
 	quad( 5, 4, 0, 1 ,  vertex_positions, Index);
 	//Initialize the motion
 	v = vec3(15.0, 0., 0.);
-	w = vec3(1., 1., 1.);
+	w = vec3(0., 1., 0.);
+	m_dir=vec4(1.0,0.0,0.0,1.0);
 }
 
 void CCube::quad(int a, int b, int c, int d, point4 * vertex_positions, int& Index)
@@ -200,7 +201,7 @@ void CCube::ResetCube()
 	m_rotation =mat4_cast(quat(0,0,0,0)); //rotate back to start
 	//Initialize the motion
 	v = vec3(15.0, 0., 0.);
-	w = vec3(1., 1., 1.);
+	w = vec3(0., 1., 0.);
 
 }
 
@@ -218,6 +219,27 @@ void CCube::CubeTranslate(double xcor, double ycor, double zcor)
 	c=vec3(xcor,ycor,zcor);
 	m_translation = glm::translate(mat4(1.f),c); // translate to specified position
 
+}
+
+void CCube::CubeMove(int dir)
+{
+	double xcor,ycor,zcor;
+	
+	xcor=c[0]+m_dir[0]*dir*.5;
+	ycor=c[1]+m_dir[1]*dir*.5;
+	zcor=c[2]+m_dir[2]*dir*.5;
+	this->CubeTranslate(xcor,ycor,zcor);// translate to specified position
+
+}
+
+void CCube::CubeRotate(int dir)
+{
+	float pi=3.14159265359;
+	q = q + dir*0.5*.2*w*q;
+	float s = 1.f/sqrt(q[0]*q[0]+q[1]*q[1]+q[2]*q[2]+q[3]*q[3]);
+	q = s*q;
+	m_rotation =mat4_cast(q);
+	m_dir=m_rotation*vec4(1,0,0,1);
 }
 /*
 
