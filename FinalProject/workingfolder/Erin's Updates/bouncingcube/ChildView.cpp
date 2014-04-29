@@ -305,16 +305,8 @@ void CChildView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 		m_user->CubeTranslate(x,1,z);
 		Invalidate();
 		break;
-	case VK_SPACE:
-		if (m_nTimer==-1) {
-		m_nTimer = SetTimer(1, 40, NULL);
-		} else {
-		KillTimer(m_nTimer);
-		m_nTimer = -1;
-		}
-		break;
 	case VK_RIGHT:
-		m_user->CubeRotate(1);
+		m_user->CubeRotate(-1);
 		if (m_user->checkPoint())
 		{
 			exit(0);
@@ -330,12 +322,12 @@ void CChildView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 			}
 		}
 		if(!goodMove){
-			m_user->CubeRotate(-1);
+			m_user->CubeRotate(1);
 			Invalidate();
 		}
 		break;
 	case VK_LEFT:
-		m_user->CubeRotate(-1);
+		m_user->CubeRotate(1);
 		if (m_user->checkPoint())
 		{
 			vec3 trans = GenerateNewLocation();
@@ -351,12 +343,34 @@ void CChildView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 		}
 		if(!goodMove)
 		{
-		m_user->CubeRotate(1);
+		m_user->CubeRotate(-1);
 		Invalidate();
 		}
 
 		break;
 	case VK_UP:
+		m_user->CubeMove(1);
+		if (m_user->checkPoint())
+		{
+			vec3 trans = GenerateNewLocation();
+			m_user->CubeTranslate(trans[0], trans[1], trans[2]);
+		}
+		Invalidate();
+		for(int i=0;i<31;i++)
+		{
+			if(goodMove)
+			{
+				goodMove=!(m_user->checkCollide(bounds[i],i));
+			}
+		}
+		if(!goodMove)
+		{
+		m_user->CubeMove(-1);
+		Invalidate();
+		}
+
+		break;
+	case VK_SPACE:
 		m_user->CubeMove(1);
 		if (m_user->checkPoint())
 		{
