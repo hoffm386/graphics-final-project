@@ -1,0 +1,57 @@
+﻿Build started 4/29/2014 2:47:27 PM.
+     1>Project "C:\Users\Zane Crawford\Documents\GitHub\graphics-final-project\FinalProject\workingfolder\Erin's Updates\BouncingCube\BouncingCube.vcxproj" on node 2 (build target(s)).
+     1>PrepareForBuild:
+         Creating directory "C:\Users\Zane Crawford\Documents\GitHub\graphics-final-project\FinalProject\workingfolder\Erin's Updates\Debug\".
+       InitializeBuildStatus:
+         Creating "Debug\BouncingCube.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D _UNICODE /D UNICODE /D _AFXDLL /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yc"StdAfx.h" /Fp"Debug\BouncingCube.pch" /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt stdafx.cpp
+         stdafx.cpp
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D _UNICODE /D UNICODE /D _AFXDLL /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"StdAfx.h" /Fp"Debug\BouncingCube.pch" /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt BouncingCube.cpp ChildView.cpp Cube.cpp GrTexture.cpp MainFrm.cpp ShaderWnd\glew.cpp ShaderWnd\ShaderWnd.cpp
+         ShaderWnd.cpp
+         glew.cpp
+         MainFrm.cpp
+         GrTexture.cpp
+         Cube.cpp
+     1>c:\users\zane crawford\documents\github\graphics-final-project\finalproject\workingfolder\erin's updates\bouncingcube\cube.cpp(237): warning C4305: 'initializing' : truncation from 'double' to 'float'
+         ChildView.cpp
+         BouncingCube.cpp
+         Generating Code...
+       ResourceCompile:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /D _DEBUG /D _UNICODE /D UNICODE /D _AFXDLL /l"0x0409" /IDebug\ /nologo /fo"Debug\BouncingCube.res" BouncingCube.rc 
+       ManifestResourceCompile:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /nologo /fo"Debug\BouncingCube.exe.embed.manifest.res" Debug\BouncingCube_manifest.rc 
+       Link:
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Zane Crawford\Documents\GitHub\graphics-final-project\FinalProject\workingfolder\Erin's Updates\Debug\BouncingCube.exe" /INCREMENTAL /NOLOGO /MANIFEST /ManifestFile:"Debug\BouncingCube.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Users\Zane Crawford\Documents\GitHub\graphics-final-project\FinalProject\workingfolder\Erin's Updates\Debug\BouncingCube.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /ENTRY:"wWinMainCRTStartup" /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Zane Crawford\Documents\GitHub\graphics-final-project\FinalProject\workingfolder\Erin's Updates\Debug\BouncingCube.lib" /MACHINE:X86 Debug\BouncingCube.res
+         Debug\BouncingCube.exe.embed.manifest.res
+         Debug\BouncingCube.obj
+         Debug\ChildView.obj
+         Debug\Cube.obj
+         Debug\GrTexture.obj
+         Debug\MainFrm.obj
+         Debug\glew.obj
+         Debug\ShaderWnd.obj
+         Debug\stdafx.obj
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /out:"Debug\BouncingCube.exe.embed.manifest" /manifest Debug\BouncingCube.exe.intermediate.manifest "c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\Include\Manifest\dpiaware.manifest"
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /nologo /fo"Debug\BouncingCube.exe.embed.manifest.res" Debug\BouncingCube_manifest.rc 
+       LinkEmbedManifest:
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Zane Crawford\Documents\GitHub\graphics-final-project\FinalProject\workingfolder\Erin's Updates\Debug\BouncingCube.exe" /INCREMENTAL /NOLOGO /MANIFEST /ManifestFile:"Debug\BouncingCube.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Users\Zane Crawford\Documents\GitHub\graphics-final-project\FinalProject\workingfolder\Erin's Updates\Debug\BouncingCube.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /ENTRY:"wWinMainCRTStartup" /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Zane Crawford\Documents\GitHub\graphics-final-project\FinalProject\workingfolder\Erin's Updates\Debug\BouncingCube.lib" /MACHINE:X86 Debug\BouncingCube.res
+         Debug\BouncingCube.exe.embed.manifest.res
+         Debug\BouncingCube.obj
+         Debug\ChildView.obj
+         Debug\Cube.obj
+         Debug\GrTexture.obj
+         Debug\MainFrm.obj
+         Debug\glew.obj
+         Debug\ShaderWnd.obj
+         Debug\stdafx.obj
+         BouncingCube.vcxproj -> C:\Users\Zane Crawford\Documents\GitHub\graphics-final-project\FinalProject\workingfolder\Erin's Updates\Debug\BouncingCube.exe
+       FinalizeBuildStatus:
+         Deleting file "Debug\BouncingCube.unsuccessfulbuild".
+         Touching "Debug\BouncingCube.lastbuildstate".
+     1>Done Building Project "C:\Users\Zane Crawford\Documents\GitHub\graphics-final-project\FinalProject\workingfolder\Erin's Updates\BouncingCube\BouncingCube.vcxproj" (build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:17.86
