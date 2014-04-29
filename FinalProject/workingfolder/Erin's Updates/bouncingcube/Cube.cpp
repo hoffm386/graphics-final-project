@@ -266,7 +266,14 @@ vec4 CCube::getBnds()
 	return vec4(len,c[0], hgt,c[2]);
 
 }
+/*
+Loop over all of the walls in ChildView
+cnum is the index into an array of walls (used for debugging)
+bnds contains the x and z size and position of a single wall
+bnds comes from bounds[cnum] in ChildView
 
+c is the user's center
+*/
 bool CCube::checkCollide(vec4 bnds, int cnum)
 {
 	double c0,c2,b0,b1,b2,b3;
