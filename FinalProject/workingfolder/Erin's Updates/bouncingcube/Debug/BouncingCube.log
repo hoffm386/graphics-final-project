@@ -1,11 +1,15 @@
-﻿Build started 4/29/2014 12:17:42 PM.
+﻿Build started 4/29/2014 4:47:56 PM.
      1>Project "C:\Users\Zane Crawford\Documents\GitHub\graphics-final-project\FinalProject\workingfolder\Erin's Updates\BouncingCube\BouncingCube.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
          Creating "Debug\BouncingCube.unsuccessfulbuild" because "AlwaysCreate" was specified.
        ClCompile:
          All outputs are up-to-date.
-         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D _UNICODE /D UNICODE /D _AFXDLL /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"StdAfx.h" /Fp"Debug\BouncingCube.pch" /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt ShaderWnd\ShaderWnd.cpp
-         ShaderWnd.cpp
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D _UNICODE /D UNICODE /D _AFXDLL /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"StdAfx.h" /Fp"Debug\BouncingCube.pch" /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt ChildView.cpp
+         ChildView.cpp
+     1>c:\users\zane crawford\documents\github\graphics-final-project\finalproject\workingfolder\erin's updates\bouncingcube\childview.cpp(454): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\zane crawford\documents\github\graphics-final-project\finalproject\workingfolder\erin's updates\bouncingcube\childview.cpp(456): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\zane crawford\documents\github\graphics-final-project\finalproject\workingfolder\erin's updates\bouncingcube\childview.cpp(457): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\zane crawford\documents\github\graphics-final-project\finalproject\workingfolder\erin's updates\bouncingcube\childview.cpp(458): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
        ResourceCompile:
          All outputs are up-to-date.
        ManifestResourceCompile:
@@ -34,4 +38,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:01.94
+Time Elapsed 00:00:01.69

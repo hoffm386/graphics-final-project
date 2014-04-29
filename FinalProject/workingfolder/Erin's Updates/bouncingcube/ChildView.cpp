@@ -234,7 +234,9 @@ void CChildView::RenderGL()
 
 	glUniform1i( glGetUniformLocation(m_program, "diffuse_mat"), 2);
 	glUniform4fv(glGetUniformLocation(m_program, "AmbientProduct"), 2, value_ptr(ambient_product));
+	if(!camfpv ){
 	m_user->RenderGL(m_program);
+	}
 	
 	glUniform1i( glGetUniformLocation(m_program, "diffuse_mat"), 3);
 	glUniform4fv(glGetUniformLocation(m_program, "AmbientProduct"), 3, value_ptr(ambient_product));
@@ -448,14 +450,14 @@ void CChildView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 void CChildView::resetCamera(bool camfpv)
 {
 			float x,y,z,x2,y2,z2;
-			x=(m_user->c[0])+(m_user->m_dir[0])*.7;
-			y=(m_user->c[1])+(m_user->m_dir[1])*.7;
-			z=(m_user->c[2])+(m_user->m_dir[2])*.7;
-			x2=(m_user->c[0])+(m_user->m_dir[0])*8;
-			y2=(m_user->c[1])+(m_user->m_dir[1])*8;
-			z2=(m_user->c[2])+(m_user->m_dir[2])*8;
+			x=(m_user->c[0])+(m_user->m_dir[0])*0;
+			y=(m_user->c[1])+(m_user->m_dir[1])*0-1.2;
+			z=(m_user->c[2])+(m_user->m_dir[2])*0;
+			x2=(m_user->c[0])+(m_user->m_dir[0])*.1;
+			y2=(m_user->c[1])+(m_user->m_dir[1])*.1-1.2;
+			z2=(m_user->c[2])+(m_user->m_dir[2])*.1;
 			vec3 m_dir=vec3((m_user->m_dir[0]),(m_user->m_dir[1]),(m_user->m_dir[2]));
-			CShaderWnd::UpdatevEye(vec3(x2,y2,z2),m_dir,vec3(x,y,z),camfpv);
+			CShaderWnd::UpdatevEye(vec3(x,y,z),m_dir,vec3(x2,y2,z2),camfpv);
 		
 			//CShaderWnd::ResetMatrix();
 

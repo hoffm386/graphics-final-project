@@ -50,15 +50,16 @@ void CShaderWnd::UpdatevEye(vec3 cen, vec3 dir, vec3 campos, bool fpm)
 	if(fpm)
 	{
 		
-		//m_vLookat = dir;
+		m_vLookat = campos;
 		//m_vLookat = vec3(0.f, 0.f, -1.f);
 		//m_vUp = vec3(0.f, 1.f, 0.f);
 		
 		//m_mView = lookAt(m_vEye, m_vLookat, m_vUp);
 		//m_mRotation = rotate(mat4(1.f), .3f, vec3(0.f,1.f,0.f));
-		m_vCenter=cen;
-		m_vEye=campos;
-	vec3 axis;
+		//m_vCenter=cen;
+		m_vEye=cen;
+		m_fFoV = 20.f;
+	/*vec3 axis;
 	float sine;
 	float angle;
 		axis = cross(m_vDown, dir);
@@ -70,7 +71,7 @@ void CShaderWnd::UpdatevEye(vec3 cen, vec3 dir, vec3 campos, bool fpm)
 			axis = vec3(0,1,0);
 		m_mRotation = rotate(mat4(1.f), angle, axis);
 		
-
+		*/
 	}
 	else
 	{
@@ -78,6 +79,7 @@ void CShaderWnd::UpdatevEye(vec3 cen, vec3 dir, vec3 campos, bool fpm)
 		m_vEye = vec3(0.01f, 90.0f, 0.01f);
 		m_vLookat = vec3(0.f, 0.f, -1.f);
 		m_mRotation = mat4(1.f);
+		m_fFoV = 30.f;
 	}
 	UpdateMatrix();
 	//return m_vEye;
