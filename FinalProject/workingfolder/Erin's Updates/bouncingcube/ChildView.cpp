@@ -165,7 +165,7 @@ void CChildView::InitGL()
 
 	color4 material_ambient(.3f, .6f, .3f, 1.f);
 	color4 material_diffuse (0.9f, .9f, 0.7f, 1.f);
-	color4 material_specular (1.f, 1.f, 1.f, 1.f);
+	color4 material_specular (0.4f, 0.4f, 0.4f, 1.f);
 	float material_shininess = 100.0f;
 
 	color4 ambient_product = light_ambient*material_ambient;
