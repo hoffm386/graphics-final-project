@@ -448,14 +448,14 @@ void CChildView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 void CChildView::resetCamera(bool camfpv)
 {
 			float x,y,z,x2,y2,z2;
-			x=(m_user->c[0])+(m_user->m_dir[0])*.6;
-			y=(m_user->c[1])+(m_user->m_dir[1])*.6;
-			z=(m_user->c[2])+(m_user->m_dir[2])*.6;
-			x2=(m_user->c[0])+(m_user->m_dir[0])*.8;
-			y2=(m_user->c[1])+(m_user->m_dir[1])*.8;
-			z2=(m_user->c[2])+(m_user->m_dir[2])*.8;
+			x=(m_user->c[0])+(m_user->m_dir[0])*.7;
+			y=(m_user->c[1])+(m_user->m_dir[1])*.7;
+			z=(m_user->c[2])+(m_user->m_dir[2])*.7;
+			x2=(m_user->c[0])+(m_user->m_dir[0])*8;
+			y2=(m_user->c[1])+(m_user->m_dir[1])*8;
+			z2=(m_user->c[2])+(m_user->m_dir[2])*8;
 			vec3 m_dir=vec3((m_user->m_dir[0]),(m_user->m_dir[1]),(m_user->m_dir[2]));
-			CShaderWnd::UpdatevEye(vec3(x2,2,z2),m_dir,vec3(x,2,z),camfpv);
+			CShaderWnd::UpdatevEye(vec3(x2,y2,z2),m_dir,vec3(x,y,z),camfpv);
 		
 			//CShaderWnd::ResetMatrix();
 

@@ -28,8 +28,8 @@ CShaderWnd::CShaderWnd()
 	m_mVM = mat4(1.f);
 	m_mRotation = mat4(1.f);
 
-	//m_vCenter = vec3(0.f, 0.f, 0.f);
-	m_vCenter = vec3(0.f, 0.f, 10.f);
+	m_vCenter = vec3(0.f, 0.f, 0.f);
+	m_vCenter = vec3(-12.f, 0.f, 5.5f);
 	m_fRadius = 1.f;
 	m_bDragging = false;
 	m_mode = TRACKBALL_NONE;
@@ -49,13 +49,28 @@ void CShaderWnd::UpdatevEye(vec3 cen, vec3 dir, vec3 campos, bool fpm)
 {
 	if(fpm)
 	{
-		m_vCenter=cen;
-		m_vLookat = dir;
+		
+		//m_vLookat = dir;
 		//m_vLookat = vec3(0.f, 0.f, -1.f);
-		m_vUp = vec3(0.f, 1.f, 0.f);
+		//m_vUp = vec3(0.f, 1.f, 0.f);
+		
+		//m_mView = lookAt(m_vEye, m_vLookat, m_vUp);
+		//m_mRotation = rotate(mat4(1.f), .3f, vec3(0.f,1.f,0.f));
+		m_vCenter=cen;
 		m_vEye=campos;
-		m_mView = lookAt(m_vEye, m_vLookat, m_vUp);
-		m_mRotation = rotate(mat4(1.f), .3f, vec3(0.f,1.f,0.f));
+	vec3 axis;
+	float sine;
+	float angle;
+		axis = cross(m_vDown, dir);
+		sine = length(axis);
+		angle = 180.f/acos(-1.f)* atan2(sine,dot(m_vDown,dir));
+		if (sine > 1.e-10f)
+			axis /= sine;
+		else 
+			axis = vec3(0,1,0);
+		m_mRotation = rotate(mat4(1.f), angle, axis);
+		
+
 	}
 	else
 	{
