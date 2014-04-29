@@ -40,6 +40,39 @@
     <None Include="ShaderWnd\fragment.glsl">
       <Filter>Shaders</Filter>
     </None>
+    <None Include="..\..\Erin%27s Updates\bouncingcube\textures\brick.jpg">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\Erin%27s Updates\bouncingcube\textures\cp.jpg">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\Erin%27s Updates\bouncingcube\textures\forest.jpg">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\Erin%27s Updates\bouncingcube\textures\lego.jpg">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\Erin%27s Updates\bouncingcube\textures\marble02.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\Erin%27s Updates\bouncingcube\textures\marble03.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\Erin%27s Updates\bouncingcube\textures\marble10.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\Erin%27s Updates\bouncingcube\textures\plank01.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\Erin%27s Updates\bouncingcube\textures\sand.jpg">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\Erin%27s Updates\bouncingcube\textures\sunset.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\Erin%27s Updates\bouncingcube\textures\worldmap.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BouncingCube.h">

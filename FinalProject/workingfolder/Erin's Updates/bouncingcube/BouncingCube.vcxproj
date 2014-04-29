@@ -96,6 +96,17 @@
     </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <None Include="..\..\Erin%27s Updates\bouncingcube\textures\brick.jpg" />
+    <None Include="..\..\Erin%27s Updates\bouncingcube\textures\cp.jpg" />
+    <None Include="..\..\Erin%27s Updates\bouncingcube\textures\forest.jpg" />
+    <None Include="..\..\Erin%27s Updates\bouncingcube\textures\lego.jpg" />
+    <None Include="..\..\Erin%27s Updates\bouncingcube\textures\marble02.bmp" />
+    <None Include="..\..\Erin%27s Updates\bouncingcube\textures\marble03.bmp" />
+    <None Include="..\..\Erin%27s Updates\bouncingcube\textures\marble10.bmp" />
+    <None Include="..\..\Erin%27s Updates\bouncingcube\textures\plank01.bmp" />
+    <None Include="..\..\Erin%27s Updates\bouncingcube\textures\sand.jpg" />
+    <None Include="..\..\Erin%27s Updates\bouncingcube\textures\sunset.bmp" />
+    <None Include="..\..\Erin%27s Updates\bouncingcube\textures\worldmap.bmp" />
     <None Include="ReadMe.txt" />
     <None Include="res\BouncingCube.ico" />
     <None Include="res\BouncingCube.rc2" />
