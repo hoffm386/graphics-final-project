@@ -20,6 +20,7 @@ CChildView::CChildView()
 	y = 1;
 	z = 5.5;
 	m_bTimer = false;
+	camfpv=false;
 	m_nTimer = -1;
 	m_fT = 0.f;
 	createMaze();
@@ -158,7 +159,7 @@ void CChildView::InitGL()
 	m_cp1->InitGL(m_program);
 	m_cp2->InitGL(m_program);
 
-	point4 light_position (-5.f, 5.f, -5.f, 0.f);
+	point4 light_position (-5.f, 5.f, -5.f, 1.f);
 	color4 light_ambient (0.2f, 0.2f, 0.2f, 1.f);
 	color4 light_diffuse (1.f, 1.f, 1.f, 1.f);
 	color4 light_specular (1.f, 1.f, 1.f, 1.f);
@@ -295,7 +296,13 @@ void CChildView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 	bool goodMove=true;
 	bool checkPoint = true;
 	double loc = 0;
+	int c_dir=0;
 	switch (nChar) {
+	case 'v':
+	case 'V':
+		camfpv =!camfpv;
+		this->resetCamera(camfpv);
+		break;
 	case 'r':
 	case 'R':
 		x=-12;
@@ -315,6 +322,7 @@ void CChildView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 		break;
 	case VK_RIGHT:
 		m_user->CubeRotate(1);
+		c_dir=1;
 		if (m_user->checkPoint())
 		{
 			exit(0);
@@ -331,11 +339,14 @@ void CChildView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 		}
 		if(!goodMove){
 			m_user->CubeRotate(-1);
+			c_dir=-1;
 			Invalidate();
 		}
+		this->resetCamera(camfpv);
 		break;
 	case VK_LEFT:
 		m_user->CubeRotate(-1);
+		c_dir=-1;
 		if (m_user->checkPoint())
 		{
 			vec3 trans = GenerateNewLocation();
@@ -352,12 +363,14 @@ void CChildView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 		if(!goodMove)
 		{
 		m_user->CubeRotate(1);
+		c_dir=1;
 		Invalidate();
 		}
-
+		this->resetCamera(camfpv);
 		break;
 	case VK_UP:
 		m_user->CubeMove(1);
+		c_dir=1;
 		if (m_user->checkPoint())
 		{
 			vec3 trans = GenerateNewLocation();
@@ -374,12 +387,14 @@ void CChildView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 		if(!goodMove)
 		{
 		m_user->CubeMove(-1);
+		c_dir=-1;
 		Invalidate();
 		}
-
+		this->resetCamera(camfpv);
 		break;
 	case VK_DOWN:
 		m_user->CubeMove(-1);
+		c_dir=-1;
 		if (m_user->checkPoint())
 		{
 			vec3 trans = GenerateNewLocation();
@@ -396,9 +411,10 @@ void CChildView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 		if(!goodMove)
 		{
 			m_user->CubeMove(1);
+			c_dir=1;
 			Invalidate();
 		}
-
+		this->resetCamera(camfpv);
 		break;
 	case '0':
 		m_corner=0;
@@ -429,6 +445,21 @@ void CChildView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 	CShaderWnd::OnKeyDown(nChar, nRepCnt, nFlags);
 }
 
+void CChildView::resetCamera(bool camfpv)
+{
+			float x,y,z,x2,y2,z2;
+			x=(m_user->c[0])+(m_user->m_dir[0])*.6;
+			y=(m_user->c[1])+(m_user->m_dir[1])*.6;
+			z=(m_user->c[2])+(m_user->m_dir[2])*.6;
+			x2=(m_user->c[0])+(m_user->m_dir[0])*.8;
+			y2=(m_user->c[1])+(m_user->m_dir[1])*.8;
+			z2=(m_user->c[2])+(m_user->m_dir[2])*.8;
+			vec3 m_dir=vec3((m_user->m_dir[0]),(m_user->m_dir[1]),(m_user->m_dir[2]));
+			CShaderWnd::UpdatevEye(vec3(x2,2,z2),m_dir,vec3(x,2,z),camfpv);
+		
+			//CShaderWnd::ResetMatrix();
+
+}
 
 void CChildView::OnTimer(UINT_PTR nIDEvent)
 {

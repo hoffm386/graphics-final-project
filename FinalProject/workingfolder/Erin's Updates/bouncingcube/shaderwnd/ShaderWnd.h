@@ -91,7 +91,7 @@ public:
 	TrackBallMode m_mode;
 	vec3 m_vCenter;
 	vec3 m_vDown;
-	void UpdatevEye(float x, float y, float z);
+	void UpdatevEye(vec3 cen, vec3 dir, vec3 campos, bool fpm);
 	float m_fRadius;
 	bool m_bDragging;
 	bool m_bMoving;
@@ -100,6 +100,7 @@ public:
 	virtual void Motion(vec3& vVec);
 	void UpdateMatrix();
 	void ResetMatrix();
+
 };
 
 /////////////////////////////////////////////////////////////////////////////

@@ -17,6 +17,7 @@ CShaderWnd::CShaderWnd()
 	m_bManageTransformation = true;
 	//m_vEye = vec3(40.f, 40.f, 40.f);
 	m_vEye = vec3(0.01f, 90.0f, 0.01f);
+	//m_vEye = vec3(-12.0f, 1.0f, 5.5f);
 	m_vLookat = vec3(0.f, 0.f, -1.f);
 	m_vUp = vec3(0.f, 1.f, 0.f);
 	m_fNear = 0.1f;
@@ -27,7 +28,8 @@ CShaderWnd::CShaderWnd()
 	m_mVM = mat4(1.f);
 	m_mRotation = mat4(1.f);
 
-	m_vCenter = vec3(0.f, 0.f, 0.f);
+	//m_vCenter = vec3(0.f, 0.f, 0.f);
+	m_vCenter = vec3(0.f, 0.f, 10.f);
 	m_fRadius = 1.f;
 	m_bDragging = false;
 	m_mode = TRACKBALL_NONE;
@@ -41,12 +43,31 @@ CShaderWnd::~CShaderWnd()
 {
 }
 
-void CShaderWnd::UpdatevEye(float x, float y, float z)
+
+
+void CShaderWnd::UpdatevEye(vec3 cen, vec3 dir, vec3 campos, bool fpm)
 {
-	m_vEye = vec3(x,y,z);
+	if(fpm)
+	{
+		m_vCenter=cen;
+		m_vLookat = dir;
+		//m_vLookat = vec3(0.f, 0.f, -1.f);
+		m_vUp = vec3(0.f, 1.f, 0.f);
+		m_vEye=campos;
+		m_mView = lookAt(m_vEye, m_vLookat, m_vUp);
+		m_mRotation = rotate(mat4(1.f), .3f, vec3(0.f,1.f,0.f));
+	}
+	else
+	{
+		m_vCenter=vec3(0,0,0);
+		m_vEye = vec3(0.01f, 90.0f, 0.01f);
+		m_vLookat = vec3(0.f, 0.f, -1.f);
+		m_mRotation = mat4(1.f);
+	}
 	UpdateMatrix();
 	//return m_vEye;
 }
+
 BEGIN_MESSAGE_MAP(CShaderWnd, CWnd)
 //{{AFX_MSG_MAP(CShaderWnd)
 ON_WM_CREATE()

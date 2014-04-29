@@ -2,6 +2,8 @@
 #include "Cube.h"
 #include "GrTexture.h"
 #include "ChildView.h"
+
+
 CCube::CCube(double length, double width, double height, bool openWall)
 {
 
@@ -32,6 +34,7 @@ CCube::CCube(double length, double width, double height, bool openWall)
 	m_dir=vec4(1.0,0.0,0.0,1.0);
 	v = vec3(15.0, 0., 0.);
 	w = vec3(0., 1., 0.);
+	singRot=mat4_cast(.5*.2*w*quat(0,0,0,0));
 }
 
 void CCube::quad(int a, int b, int c, int d, point4 * vertex_positions, int& Index)
@@ -202,7 +205,7 @@ void CCube::ResetCube()
 	//Initialize the motion
 	v = vec3(15.0, 0., 0.);
 	w = vec3(0., 1., 0.);
-
+	m_dir=vec4(1.0,0.0,0.0,1.0);
 }
 
 
@@ -225,12 +228,13 @@ void CCube::CubeMove(int dir)
 {
 	double xcor,ycor,zcor;
 
-	xcor=c[0]+m_dir[0]*dir*.5;
-	ycor=c[1]+m_dir[1]*dir*.5;
-	zcor=c[2]+m_dir[2]*dir*.5;
+	xcor=c[0]+m_dir[0]*dir*.4;
+	ycor=c[1]+m_dir[1]*dir*.4;
+	zcor=c[2]+m_dir[2]*dir*.4;
 	this->CubeTranslate(xcor,ycor,zcor);// translate to specified position
 
 }
+
 
 void CCube::CubeRotate(int dir)
 {
