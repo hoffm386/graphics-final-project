@@ -21,6 +21,7 @@ CChildView::CChildView()
 	z = 5.5;
 	m_bTimer = false;
 	m_nTimer = -1;
+	camfpv=false;
 	m_fT = 0.f;
 	createMaze();
 	m_user = new CCube(.5,2,.5, false);
@@ -233,8 +234,9 @@ void CChildView::RenderGL()
 
 	glUniform1i( glGetUniformLocation(m_program, "diffuse_mat"), 2);
 	glUniform4fv(glGetUniformLocation(m_program, "AmbientProduct"), 2, value_ptr(ambient_product));
+	if(!camfpv){
 	m_user->RenderGL(m_program);
-	
+	}
 	glUniform1i( glGetUniformLocation(m_program, "diffuse_mat"), 3);
 	glUniform4fv(glGetUniformLocation(m_program, "AmbientProduct"), 3, value_ptr(ambient_product));
 	m_floor->RenderGL(m_program);
@@ -296,6 +298,11 @@ void CChildView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 	bool checkPoint = true;
 	double loc = 0;
 	switch (nChar) {
+	case 'v':
+	case 'V':
+		camfpv=!camfpv;
+		this->resetCam();
+		break;
 	case 'r':
 	case 'R':
 		x=-12;
@@ -325,6 +332,7 @@ void CChildView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 			m_user->CubeRotate(1);
 			Invalidate();
 		}
+		this->resetCam();
 		break;
 	case VK_LEFT:
 		m_user->CubeRotate(1);
@@ -346,7 +354,7 @@ void CChildView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 		m_user->CubeRotate(-1);
 		Invalidate();
 		}
-
+		this->resetCam();
 		break;
 	case VK_UP:
 		m_user->CubeMove(1);
@@ -368,7 +376,7 @@ void CChildView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 		m_user->CubeMove(-1);
 		Invalidate();
 		}
-
+		this->resetCam();
 		break;
 	case VK_SPACE:
 		m_user->CubeMove(1);
@@ -390,7 +398,7 @@ void CChildView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 		m_user->CubeMove(-1);
 		Invalidate();
 		}
-
+		this->resetCam();
 		break;
 	case VK_DOWN:
 		m_user->CubeMove(-1);
@@ -412,7 +420,7 @@ void CChildView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 			m_user->CubeMove(1);
 			Invalidate();
 		}
-
+		this->resetCam();
 		break;
 	case '0':
 		m_corner=0;
@@ -443,6 +451,26 @@ void CChildView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 	CShaderWnd::OnKeyDown(nChar, nRepCnt, nFlags);
 }
 
+void CChildView::resetCam()
+{
+	float x0,y0,z0,x1,y1,z1;
+	if(camfpv)
+	{
+		x0 = (m_user->c[0]);
+		y0 = (m_user->c[1]);
+		z0 = (m_user->c[2]);
+		x1 = (m_user->c[0])+(m_user->m_dir[0])*.4;
+		y1 = (m_user->c[1])+(m_user->m_dir[0])*.4;
+		z1 = (m_user->c[2])+(m_user->m_dir[0])*.4;
+		CShaderWnd::UpdatevEye(vec3(x0,-1,z0), vec3(x1,-1,z1),camfpv);
+
+	}
+	else
+	{
+		CShaderWnd::UpdatevEye(vec3(0.01f,90.f,0.f), vec3(0.0f,0.f,-1.f),camfpv);
+	}
+
+}
 
 void CChildView::OnTimer(UINT_PTR nIDEvent)
 {

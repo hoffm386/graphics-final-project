@@ -28,7 +28,7 @@ public:
 	double *checkpoints[5];
 	CCube  *m_wall1, *m_wall2, *m_wall3, *m_wall4, *m_wall5, *m_wall6;
 	CCube *m_wall,*m_floor, *m_cp, *m_cp1, *m_cp2;
-	bool m_bTimer;
+	bool m_bTimer,camfpv;
 	int m_nTimer,m_corner;
 	float m_fT;
 	vec4 bounds[31];
@@ -60,6 +60,7 @@ public:
 
 	void ToggleDragSetting();
 	void Motion(vec3& vVec);
+	void resetCam();
 private:
 	CGrTexture m_wood;
 	CGrTexture m_sand;

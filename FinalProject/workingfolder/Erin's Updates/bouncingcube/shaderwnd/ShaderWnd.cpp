@@ -41,9 +41,18 @@ CShaderWnd::~CShaderWnd()
 {
 }
 
-void CShaderWnd::UpdatevEye(float x, float y, float z)
+void CShaderWnd::UpdatevEye(vec3 eyes, vec3 looks,bool fpm)
 {
-	m_vEye = vec3(x,y,z);
+	m_vEye = eyes;
+	m_vLookat = looks;
+	if(fpm)
+	{
+		m_fFoV = 15.f;
+	}
+	else
+	{
+		m_fFoV = 30.f;
+	}
 	UpdateMatrix();
 	//return m_vEye;
 }
