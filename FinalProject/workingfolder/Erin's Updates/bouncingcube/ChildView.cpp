@@ -459,9 +459,9 @@ void CChildView::resetCam()
 		x0 = (m_user->c[0]);
 		y0 = (m_user->c[1]);
 		z0 = (m_user->c[2]);
-		x1 = (m_user->c[0])+(m_user->m_dir[0])*.4;
-		y1 = (m_user->c[1])+(m_user->m_dir[0])*.4;
-		z1 = (m_user->c[2])+(m_user->m_dir[0])*.4;
+		x1 = (m_user->c[0])+(m_user->m_dir[0])*.8;
+		y1 = (m_user->c[1])+(m_user->m_dir[0])*.8;
+		z1 = (m_user->c[2])+(m_user->m_dir[0])*.8;
 		CShaderWnd::UpdatevEye(vec3(x0,-1,z0), vec3(x1,-1,z1),camfpv);
 
 	}
